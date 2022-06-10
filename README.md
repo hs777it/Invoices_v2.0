@@ -1,11 +1,11 @@
 # Invoices_v2.0
+<br>
+---------------- Upload Laravel ----------------- <br>
+php artisan migrate:fresh <br>
 
-# ---------------------------- Upload Laravel ----------------------------------
-# php artisan migrate:fresh
+php artisan db:seed <br>
+php artisan db:seed --class=PermissionTableSeeder <br>
+php artisan db:seed --class=CreateAdminUserSeeder <br>
 
-# php artisan db:seed
-# php artisan db:seed --class=PermissionTableSeeder
-# php artisan db:seed --class=CreateAdminUserSeeder
-
-# php artisan make:mail registration
-# php artisan key:generate
+php artisan make:mail registration <br>
+php artisan key:generate <br>

@@ -8,4 +8,5 @@ php artisan db:seed --class=PermissionTableSeeder
 php artisan db:seed --class=CreateAdminUserSeeder
 
 php artisan make:mail registration
+
 php artisan key:generate

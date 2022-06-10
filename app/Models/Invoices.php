@@ -1,11 +1,11 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class invoices extends Model
+class Invoices extends Model
 {
     use SoftDeletes;
     protected $fillable = [
@@ -30,6 +30,6 @@ class invoices extends Model
 
  public function section()
    {
-   return $this->belongsTo('App\sections');
+   return $this->belongsTo('App\Models\sections');
    }
 }

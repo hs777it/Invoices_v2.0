@@ -1,20 +1,20 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\Notification;
-use App\invoices;
-use App\sections;
-use App\User;
-use App\invoices_details;
-use App\invoice_attachments;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Http\Request;
-use App\Notifications\AddInvoice;
-use App\Exports\InvoicesExport;
-use Maatwebsite\Excel\Facades\Excel;
 use App\Events\MyEventClass;
+use App\Exports\InvoicesExport;
+use App\Models\invoice_attachments;
+use App\Models\Invoices;
+use App\Models\invoices_details;
+use App\Models\sections;
+use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Notification;
+use Illuminate\Support\Facades\Storage;
+use Maatwebsite\Excel\Facades\Excel;
+
 class InvoicesController extends Controller
 {
     /**
@@ -26,7 +26,7 @@ class InvoicesController extends Controller
     {
 
 
-        $invoices = invoices::all();
+        $invoices = Invoices::all();
         return view('invoices.invoices', compact('invoices'));
     }
 
@@ -49,7 +49,7 @@ class InvoicesController extends Controller
      */
     public function store(Request $request)
     {
-        invoices::create([
+        Invoices::create([
             'invoice_number' => $request->invoice_number,
             'invoice_Date' => $request->invoice_Date,
             'Due_date' => $request->Due_date,
@@ -66,7 +66,7 @@ class InvoicesController extends Controller
             'note' => $request->note,
         ]);
 
-        $invoice_id = invoices::latest()->first()->id;
+        $invoice_id = Invoices::latest()->first()->id;
         invoices_details::create([
             'id_Invoice' => $invoice_id,
             'invoice_number' => $request->invoice_number,
@@ -102,15 +102,15 @@ class InvoicesController extends Controller
            // Notification::send($user, new AddInvoice($invoice_id));
 
         $user = User::get();
-        $invoices = invoices::latest()->first();
+        $invoices = Invoices::latest()->first();
         Notification::send($user, new \App\Notifications\Add_invoice_new($invoices));
 
-     
 
 
 
 
-        
+
+
         event(new MyEventClass('hello world'));
 
         session()->flash('Add', 'تم اضافة الفاتورة بنجاح');
@@ -120,24 +120,24 @@ class InvoicesController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\invoices  $invoices
+     * @param  \App\Models\Invoices  $invoices
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $invoices = invoices::where('id', $id)->first();
+        $invoices = Invoices::where('id', $id)->first();
         return view('invoices.status_update', compact('invoices'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\invoices  $invoices
+     * @param  \App\Models\Invoices  $invoices
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $invoices = invoices::where('id', $id)->first();
+        $invoices = Invoices::where('id', $id)->first();
         $sections = sections::all();
         return view('invoices.edit_invoice', compact('sections', 'invoices'));
     }
@@ -146,13 +146,13 @@ class InvoicesController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\invoices  $invoices
+     * @param  \App\Models\Invoices  $invoices
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request)
     {
 
-        $invoices = invoices::findOrFail($request->invoice_id);
+        $invoices = Invoices::findOrFail($request->invoice_id);
         $invoices->update([
             'invoice_number' => $request->invoice_number,
             'invoice_Date' => $request->invoice_Date,
@@ -175,13 +175,13 @@ class InvoicesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\invoices  $invoices
+     * @param  \App\Models\Invoices  $invoices
      * @return \Illuminate\Http\Response
      */
     public function destroy(Request $request)
     {
         $id = $request->invoice_id;
-        $invoices = invoices::where('id', $id)->first();
+        $invoices = Invoices::where('id', $id)->first();
         $Details = invoice_attachments::where('invoice_id', $id)->first();
 
          $id_page =$request->id_page;
@@ -218,7 +218,7 @@ class InvoicesController extends Controller
 
     public function Status_Update($id, Request $request)
     {
-        $invoices = invoices::findOrFail($id);
+        $invoices = Invoices::findOrFail($id);
 
         if ($request->Status === 'مدفوعة') {
 
@@ -285,7 +285,7 @@ class InvoicesController extends Controller
 
     public function Print_invoice($id)
     {
-        $invoices = invoices::where('id', $id)->first();
+        $invoices = Invoices::where('id', $id)->first();
         return view('invoices.Print_invoice',compact('invoices'));
     }
 

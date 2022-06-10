@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\products;
-use App\sections;
+use App\Models\products;
+use App\Models\sections;
 use Illuminate\Http\Request;
 
 class ProductsController extends Controller
@@ -50,7 +50,7 @@ class ProductsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\products  $products
+     * @param  \App\Models\products  $products
      * @return \Illuminate\Http\Response
      */
     public function show(products $products)
@@ -61,7 +61,7 @@ class ProductsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\products  $products
+     * @param  \App\Models\products  $products
      * @return \Illuminate\Http\Response
      */
     public function edit(products $products)
@@ -73,7 +73,7 @@ class ProductsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\products  $products
+     * @param  \App\Models\products  $products
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request)
@@ -91,13 +91,13 @@ class ProductsController extends Controller
 
        session()->flash('Edit', 'تم تعديل المنتج بنجاح');
        return back();
-        
+
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\products  $products
+     * @param  \App\Models\products  $products
      * @return \Illuminate\Http\Response
      */
     public function destroy(Request $request)

@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Invoices;
 use Illuminate\Http\Request;
-use App\invoices;
+
 class InvoiceAchiveController extends Controller
 {
     /**
@@ -13,7 +14,7 @@ class InvoiceAchiveController extends Controller
      */
     public function index()
     {
-        $invoices = invoices::onlyTrashed()->get();
+        $invoices = Invoices::onlyTrashed()->get();
         return view('Invoices.Archive_Invoices',compact('invoices'));
     }
 
@@ -84,10 +85,10 @@ class InvoiceAchiveController extends Controller
      */
     public function destroy(Request $request)
     {
-         $invoices = invoices::withTrashed()->where('id',$request->invoice_id)->first();
+         $invoices = Invoices::withTrashed()->where('id',$request->invoice_id)->first();
          $invoices->forceDelete();
          session()->flash('delete_invoice');
          return redirect('/Archive');
-    
+
     }
 }

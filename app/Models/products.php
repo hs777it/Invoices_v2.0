@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,7 +11,7 @@ class products extends Model
 
    public function section()
    {
-   return $this->belongsTo('App\sections');
+   return $this->belongsTo('App\Models\sections');
    }
 
 }

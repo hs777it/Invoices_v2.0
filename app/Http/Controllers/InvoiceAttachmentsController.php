@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\invoice_attachments;
+use App\Models\invoice_attachments;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+
 class InvoiceAttachmentsController extends Controller
 {
     /**
@@ -42,7 +43,7 @@ class InvoiceAttachmentsController extends Controller
         ], [
             'file_name.mimes' => 'صيغة المرفق يجب ان تكون   pdf, jpeg , png , jpg',
         ]);
-        
+
         $image = $request->file('file_name');
         $file_name = $image->getClientOriginalName();
 
@@ -52,11 +53,11 @@ class InvoiceAttachmentsController extends Controller
         $attachments->invoice_id = $request->invoice_id;
         $attachments->Created_by = Auth::user()->name;
         $attachments->save();
-           
+
         // move pic
         $imageName = $request->file_name->getClientOriginalName();
         $request->file_name->move(public_path('Attachments/'. $request->invoice_number), $imageName);
-        
+
         session()->flash('Add', 'تم اضافة المرفق بنجاح');
         return back();
 
@@ -65,7 +66,7 @@ class InvoiceAttachmentsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\invoice_attachments  $invoice_attachments
+     * @param  \App\Models\invoice_attachments  $invoice_attachments
      * @return \Illuminate\Http\Response
      */
     public function show(invoice_attachments $invoice_attachments)
@@ -76,7 +77,7 @@ class InvoiceAttachmentsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\invoice_attachments  $invoice_attachments
+     * @param  \App\Models\invoice_attachments  $invoice_attachments
      * @return \Illuminate\Http\Response
      */
     public function edit(invoice_attachments $invoice_attachments)
@@ -88,7 +89,7 @@ class InvoiceAttachmentsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\invoice_attachments  $invoice_attachments
+     * @param  \App\Models\invoice_attachments  $invoice_attachments
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, invoice_attachments $invoice_attachments)
@@ -99,7 +100,7 @@ class InvoiceAttachmentsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\invoice_attachments  $invoice_attachments
+     * @param  \App\Models\invoice_attachments  $invoice_attachments
      * @return \Illuminate\Http\Response
      */
     public function destroy(invoice_attachments $invoice_attachments)

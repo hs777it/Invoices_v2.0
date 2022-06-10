@@ -1,11 +1,11 @@
 <?php
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\User;
-use Spatie\Permission\Models\Role;
+use App\Models\User;
 use DB;
 use Hash;
+use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
+
 class UserController extends Controller
 {
 /**

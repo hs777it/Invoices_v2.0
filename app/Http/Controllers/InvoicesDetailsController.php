@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\invoices_details;
-use App\invoices;
-use App\invoice_attachments;
-use Illuminate\Support\Facades\Storage;
+use App\Models\invoice_attachments;
+use App\Models\Invoices;
+use App\Models\invoices_details;
 use File;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class InvoicesDetailsController extends Controller
 {
@@ -45,7 +45,7 @@ class InvoicesDetailsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\invoices_details  $invoices_details
+     * @param  \App\Models\invoices_details  $invoices_details
      * @return \Illuminate\Http\Response
      */
     public function show(invoices_details $invoices_details)
@@ -56,13 +56,13 @@ class InvoicesDetailsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\invoices_details  $invoices_details
+     * @param  \App\Models\invoices_details  $invoices_details
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    
+
     {
-        $invoices = invoices::where('id',$id)->first();
+        $invoices = Invoices::where('id',$id)->first();
         $details  = invoices_Details::where('id_Invoice',$id)->get();
         $attachments  = invoice_attachments::where('invoice_id',$id)->get();
 
@@ -73,7 +73,7 @@ class InvoicesDetailsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\invoices_details  $invoices_details
+     * @param  \App\Models\invoices_details  $invoices_details
      * @return \Illuminate\Http\Response
      */
     public function destroy(Request $request)

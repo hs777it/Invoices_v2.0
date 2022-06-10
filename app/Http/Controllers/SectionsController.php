@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\sections;
+use App\Models\sections;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+
 class SectionsController extends Controller
 {
     /**
@@ -63,7 +64,7 @@ class SectionsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\sections  $sections
+     * @param  \App\Models\sections  $sections
      * @return \Illuminate\Http\Response
      */
     public function show(sections $sections)
@@ -74,7 +75,7 @@ class SectionsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\sections  $sections
+     * @param  \App\Models\sections  $sections
      * @return \Illuminate\Http\Response
      */
     public function edit(sections $sections)
@@ -86,7 +87,7 @@ class SectionsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\sections  $sections
+     * @param  \App\Models\sections  $sections
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request)
@@ -118,7 +119,7 @@ class SectionsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\sections  $sections
+     * @param  \App\Models\sections  $sections
      * @return \Illuminate\Http\Response
      */
     public function destroy(Request $request)

@@ -6,19 +6,20 @@
                 display: none;
             }
         }
-
     </style>
 @endsection
 @section('title')
-    معاينه طباعة الفاتورة
+    معاينة طباعة الفاتورة
 @stop
 @section('page-header')
     <!-- breadcrumb -->
     <div class="breadcrumb-header justify-content-between">
         <div class="my-auto">
             <div class="d-flex">
-                <h4 class="content-title mb-0 my-auto">الفواتير</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/
-                    معاينة طباعة الفاتورة</span>
+                <h4 class="content-title mb-0 my-auto">الفواتير</h4>
+                <span class="text-muted mt-1 tx-13 mr-2 mb-0">
+                    / معاينة طباعة الفاتورة
+                </span>
             </div>
         </div>
 
@@ -54,13 +55,17 @@
                             <div class="col-md">
                                 <label class="tx-gray-600">معلومات الفاتورة</label>
                                 <p class="invoice-info-row"><span>رقم الفاتورة</span>
-                                    <span>{{ $invoices->invoice_number }}</span></p>
+                                    <span>{{ $invoices->invoice_number }}</span>
+                                </p>
                                 <p class="invoice-info-row"><span>تاريخ الاصدار</span>
-                                    <span>{{ $invoices->invoice_Date }}</span></p>
+                                    <span>{{ $invoices->invoice_Date }}</span>
+                                </p>
                                 <p class="invoice-info-row"><span>تاريخ الاستحقاق</span>
-                                    <span>{{ $invoices->Due_date }}</span></p>
+                                    <span>{{ $invoices->Due_date }}</span>
+                                </p>
                                 <p class="invoice-info-row"><span>القسم</span>
-                                    <span>{{ $invoices->section->section_name }}</span></p>
+                                    <span>{{ $invoices->section->section_name }}</span>
+                                </p>
                             </div>
                         </div>
                         <div class="table-responsive mg-t-40">
@@ -81,7 +86,7 @@
                                         <td class="tx-center">{{ number_format($invoices->Amount_collection, 2) }}</td>
                                         <td class="tx-right">{{ number_format($invoices->Amount_Commission, 2) }}</td>
                                         @php
-                                        $total = $invoices->Amount_collection + $invoices->Amount_Commission ;
+                                            $total = $invoices->Amount_collection + $invoices->Amount_Commission;
                                         @endphp
                                         <td class="tx-right">
                                             {{ number_format($total, 2) }}
@@ -104,7 +109,8 @@
                                     </tr>
                                     <tr>
                                         <td class="tx-right">قيمة الخصم</td>
-                                        <td class="tx-right" colspan="2"> {{ number_format($invoices->Discount, 2) }}</td>
+                                        <td class="tx-right" colspan="2"> {{ number_format($invoices->Discount, 2) }}
+                                        </td>
 
                                     </tr>
                                     <tr>
@@ -147,7 +153,6 @@
             document.body.innerHTML = originalContents;
             location.reload();
         }
-
     </script>
 
 @endsection

@@ -17,8 +17,8 @@
                 <a class="close-toggle" href="#"><i class="header-icons fe fe-x"></i></a>
             </div>
             <div class="main-header-center mr-3 d-sm-none d-md-none d-lg-block">
-                <input class="form-control" placeholder="Search for anything..." type="search"> <button class="btn"><i
-                        class="fas fa-search d-none d-md-block"></i></button>
+                <input class="form-control" placeholder="Search for anything..." type="search"> <button
+                    class="btn"><i class="fas fa-search d-none d-md-block"></i></button>
             </div>
         </div>
         <div class="main-header-right">
@@ -36,35 +36,40 @@
                         <div class="dropdown-menu dropdown-menu-left dropdown-menu-arrow" x-placement="bottom-end">
                             <a href="#" class="dropdown-item d-flex ">
                                 <span class="avatar  ml-3 align-self-center bg-transparent"><img
-                                        src="{{ URL::asset('assets/img/flags/french_flag.jpg') }}" alt="img"></span>
+                                        src="{{ URL::asset('assets/img/flags/french_flag.jpg') }}"
+                                        alt="img"></span>
                                 <div class="d-flex">
                                     <span class="mt-2">French</span>
                                 </div>
                             </a>
                             <a href="#" class="dropdown-item d-flex">
                                 <span class="avatar  ml-3 align-self-center bg-transparent"><img
-                                        src="{{ URL::asset('assets/img/flags/germany_flag.jpg') }}" alt="img"></span>
+                                        src="{{ URL::asset('assets/img/flags/germany_flag.jpg') }}"
+                                        alt="img"></span>
                                 <div class="d-flex">
                                     <span class="mt-2">Germany</span>
                                 </div>
                             </a>
                             <a href="#" class="dropdown-item d-flex">
                                 <span class="avatar ml-3 align-self-center bg-transparent"><img
-                                        src="{{ URL::asset('assets/img/flags/italy_flag.jpg') }}" alt="img"></span>
+                                        src="{{ URL::asset('assets/img/flags/italy_flag.jpg') }}"
+                                        alt="img"></span>
                                 <div class="d-flex">
                                     <span class="mt-2">Italy</span>
                                 </div>
                             </a>
                             <a href="#" class="dropdown-item d-flex">
                                 <span class="avatar ml-3 align-self-center bg-transparent"><img
-                                        src="{{ URL::asset('assets/img/flags/russia_flag.jpg') }}" alt="img"></span>
+                                        src="{{ URL::asset('assets/img/flags/russia_flag.jpg') }}"
+                                        alt="img"></span>
                                 <div class="d-flex">
                                     <span class="mt-2">Russia</span>
                                 </div>
                             </a>
                             <a href="#" class="dropdown-item d-flex">
                                 <span class="avatar  ml-3 align-self-center bg-transparent"><img
-                                        src="{{ URL::asset('assets/img/flags/spain_flag.jpg') }}" alt="img"></span>
+                                        src="{{ URL::asset('assets/img/flags/spain_flag.jpg') }}"
+                                        alt="img"></span>
                                 <div class="d-flex">
                                     <span class="mt-2">spain</span>
                                 </div>
@@ -83,9 +88,10 @@
                                     <i class="fas fa-times"></i>
                                 </button>
                                 <button type="submit" class="btn btn-default nav-link resp-btn">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="header-icon-svgs" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="feather feather-search">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="header-icon-svgs"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round"
+                                        class="feather feather-search">
                                         <circle cx="11" cy="11" r="8"></circle>
                                         <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                                     </svg>
@@ -95,9 +101,10 @@
                     </form>
                 </div>
                 <div class="dropdown nav-item main-header-message ">
-                    <a class="new nav-link" href="#"><svg xmlns="http://www.w3.org/2000/svg" class="header-icon-svgs"
-                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail">
+                    <a class="new nav-link" href="#"><svg xmlns="http://www.w3.org/2000/svg"
+                            class="header-icon-svgs" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-mail">
                             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
                             </path>
                             <polyline points="22,6 12,13 2,6"></polyline>
@@ -187,9 +194,9 @@
                 @can('الاشعارات')
                     <div class="dropdown nav-item main-header-notification">
                         <a class="new nav-link" href="#">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="header-icon-svgs" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                class="feather feather-bell">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="header-icon-svgs" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="feather feather-bell">
                                 <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
                                 <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
                             </svg><span class=" pulse"></span></a>
@@ -245,10 +252,11 @@
                     <div class="dropdown-menu">
                         <div class="main-header-profile bg-primary p-3">
                             <div class="d-flex wd-100p">
-                                <div class="main-img-user"><img alt="" src="{{ URL::asset('assets/img/faces/6.jpg') }}"
-                                        class=""></div>
+                                <div class="main-img-user"><img alt=""
+                                        src="{{ URL::asset('assets/img/faces/6.jpg') }}" class=""></div>
                                 <div class="mr-3 my-auto">
-                                    <h6>{{ Auth::user()->name }}</h6><span>{{ Auth::user()->email }}</span>
+                                    <h6>{{ Auth::user()->name }}</h6>
+                                    <span>{{ Auth::user()->email }}</span>
                                 </div>
                             </div>
                         </div>
@@ -257,20 +265,24 @@
                         <a class="dropdown-item" href=""><i class="bx bxs-inbox"></i>Inbox</a>
                         <a class="dropdown-item" href=""><i class="bx bx-envelope"></i>Messages</a>
                         <a class="dropdown-item" href=""><i class="bx bx-slider-alt"></i> Account Settings</a>
+
                         <a class="dropdown-item" href="{{ route('logout') }}"
-                            onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i
-                                class="bx bx-log-out"></i>تسجيل خروج</a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                            <i class="bx bx-log-out"></i>تسجيل خروج
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                            style="display: none;">
                             @csrf
+                            <!-- Cross-site request forgeries -->
                         </form>
 
                     </div>
                 </div>
                 <div class="dropdown main-header-message right-toggle">
                     <a class="nav-link pr-0" data-toggle="sidebar-left" data-target=".sidebar-left">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="header-icon-svgs" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="feather feather-menu">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="header-icon-svgs" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="feather feather-menu">
                             <line x1="3" y1="12" x2="21" y2="12"></line>
                             <line x1="3" y1="6" x2="21" y2="6"></line>
                             <line x1="3" y1="18" x2="21" y2="18"></line>

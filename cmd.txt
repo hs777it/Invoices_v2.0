@@ -1,0 +1,39 @@
+https://artisan.page/
+
+php artisan list
+
+Authentication:
+composer require laravel/ui
+
+Generate Basic Scaffolding & with Authentication Using Bootstrap:
+php artisan ui bootstrap $ php artisan ui bootstrap --auth
+
+Generate Basic Scaffolding & with Authentication Using Vue:
+$ php artisan ui vue $ php artisan ui vue --auth
+
+Generate Basic Scaffolding & with Authentication Using React:
+$ php artisan ui react $ php artisan ui react --auth
+
+=-=-=-= =-=-=-= =-=-=-= =-=-=-= =-=-=-= =-=-=-= =-=-=-= =-=-=-= =-=-=-= =-=-=-=
+
+Generate a New Controller:
+php artisan make:controller InvoicesController
+php artisan make:controller InvoicesController --resource
+
+=-=-=-= =-=-=-= =-=-=-= =-=-=-= =-=-=-= =-=-=-= =-=-=-= =-=-=-= =-=-=-= =-=-=-=
+
+Create a Invoice model
+php artisan make:model Invoice -mcr
+
+This command will create a Invoice model with the following files:
+app/Models/Invoice.php
+database/migrations/2023_03_25_000000_create_invoices_table.php
+app/Http/Controllers/InvoiceController.php
+routes/web.php
+
+=-=-=-= =-=-=-= =-=-=-= =-=-=-= =-=-=-= =-=-=-= =-=-=-= =-=-=-= =-=-=-= =-=-=-=
+
+
+
+
+php artisan migrate

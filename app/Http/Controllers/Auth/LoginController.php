@@ -38,11 +38,24 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-      protected function credentials(\Illuminate\Http\Request $request)
+    protected function credentials(\Illuminate\Http\Request $request)
     {
         return ['email' => $request->email, 'password' => $request->password, 'status' => 'مفعل'];
     }
 
-    
-    
+
+    // To create:
+    // $response->withCookie(Cookie::make('name', 'value', $minutes));
+    // To retrieve:
+    // $value = Cookie::get('name');
+
+
+    // if (Auth::attempt(array('email' => $email, 'password' => $password), true))
+    // {
+    //     // The user is being remembered...
+    // }
+    // if (Auth::viaRemember())
+    // {
+    //     //
+    // }
 }

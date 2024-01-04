@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('title')
-    لوحة التحكم - برنامج الفواتير
+    لوحة التحكم
 @stop
 @section('css')
     <!--  Owl-carousel css-->
@@ -13,7 +13,7 @@
     <div class="breadcrumb-header justify-content-between">
         <div class="left-content">
             <div>
-                <h2 class="main-content-title tx-24 mg-b-1 mg-b-lg-1">Hi, welcome back!</h2>
+                <h2 class="main-content-title tx-24 mg-b-1 mg-b-lg-1">Hi, {{ Auth::user()->name }} welcome back!</h2>
                 <p class="mg-b-0">Sales monitoring dashboard template.</p>
             </div>
         </div>
@@ -88,15 +88,14 @@
                                 <span class="text-white op-7">
 
                                     @php
-                                    $count_all= \App\invoices::count();
-                                    $count_invoices2 = \App\invoices::where('Value_Status', 2)->count();
+                                        $count_all = \App\invoices::count();
+                                        $count_invoices2 = \App\invoices::where('Value_Status', 2)->count();
 
-                                    if($count_invoices2 == 0){
-                                       echo $count_invoices2 = 0;
-                                    }
-                                    else{
-                                       echo $count_invoices2 = $count_invoices2 / $count_all *100;
-                                    }
+                                        if ($count_invoices2 == 0) {
+                                            echo $count_invoices2 = 0;
+                                        } else {
+                                            echo $count_invoices2 = ($count_invoices2 / $count_all) * 100;
+                                        }
                                     @endphp
 
                                 </span>
@@ -129,14 +128,13 @@
                                 <i class="fas fa-arrow-circle-up text-white"></i>
                                 <span class="text-white op-7">
                                     @php
-                                        $count_all= \App\invoices::count();
+                                        $count_all = \App\invoices::count();
                                         $count_invoices1 = \App\invoices::where('Value_Status', 1)->count();
 
-                                        if($count_invoices1 == 0){
-                                           echo $count_invoices1 = 0;
-                                        }
-                                        else{
-                                           echo $count_invoices1 = $count_invoices1 / $count_all *100;
+                                        if ($count_invoices1 == 0) {
+                                            echo $count_invoices1 = 0;
+                                        } else {
+                                            echo $count_invoices1 = ($count_invoices1 / $count_all) * 100;
                                         }
                                     @endphp
                                 </span>
@@ -169,14 +167,13 @@
                                 <i class="fas fa-arrow-circle-down text-white"></i>
                                 <span class="text-white op-7">
                                     @php
-                                        $count_all= \App\invoices::count();
+                                        $count_all = \App\invoices::count();
                                         $count_invoices1 = \App\invoices::where('Value_Status', 1)->count();
 
-                                        if($count_invoices1 == 0){
+                                        if ($count_invoices1 == 0) {
                                             echo $count_invoices1 = 0;
-                                        }
-                                        else{
-                                          echo $count_invoices1 = $count_invoices1 / $count_all *100;
+                                        } else {
+                                            echo $count_invoices1 = ($count_invoices1 / $count_all) * 100;
                                         }
                                     @endphp
                                 </span>

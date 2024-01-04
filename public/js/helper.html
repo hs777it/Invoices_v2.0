@@ -1,0 +1,19 @@
+<script>
+    const input = document.getElementById("input");
+    const btn = document.getElementById("btn");
+
+    function getFlagEmoji(countryCode) {
+        const codePoints = countryCode
+            .toUpperCase()
+            .split("")
+            .map((char) => 127397 + char.charCodeAt(0));
+        return String.fromCodePoint(...codePoints);
+    }
+
+    btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        console.log(getFlagEmoji(input.value));
+    });
+</script>
+<input type="text" id="input" placeholder="Country Code" maxlength="2" />
+<button id="btn">Get Emoji</button>

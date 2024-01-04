@@ -65,18 +65,20 @@
 <!-- row -->
 <div class="row">
 
-
     <div class="col-xl-12">
         <div class="card mg-b-20">
+
             <div class="card-header pb-0">
                 <div class="d-flex justify-content-between">
                     @can('اضافة قسم')
-                        <a class="modal-effect btn btn-outline-primary btn-block" data-effect="effect-scale"
-                            data-toggle="modal" href="#modaldemo8">اضافة قسم</a>
+                        <a class="modal-effect btn btn-outline-primary" data-effect="effect-scale" data-toggle="modal"
+                            href="#modaldemo8">اضافة قسم</a>
                     @endcan
                 </div>
 
             </div>
+
+            {{-- All Users View --}}
             <div class="card-body">
                 <div class="table-responsive">
                     <table id="example1" class="table key-buttons text-md-nowrap" data-page-length='50'
@@ -90,9 +92,12 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php $i = 0; ?>
+
+                            <?php
+                            $i = 0; ?>
                             @foreach ($sections as $x)
                                 <?php $i++; ?>
+
                                 <tr>
                                     <td>{{ $i }}</td>
                                     <td>{{ $x->section_name }}</td>
@@ -102,14 +107,19 @@
                                             <a class="modal-effect btn btn-sm btn-info" data-effect="effect-scale"
                                                 data-id="{{ $x->id }}" data-section_name="{{ $x->section_name }}"
                                                 data-description="{{ $x->description }}" data-toggle="modal"
-                                                href="#exampleModal2" title="تعديل"><i class="las la-pen"></i></a>
+                                                href="#exampleModal2" title="تعديل">
+                                                <i class="las la-pen"></i>&nbsp;
+                                                تعديل
+                                            </a>
                                         @endcan
 
                                         @can('حذف قسم')
                                             <a class="modal-effect btn btn-sm btn-danger" data-effect="effect-scale"
                                                 data-id="{{ $x->id }}" data-section_name="{{ $x->section_name }}"
-                                                data-toggle="modal" href="#modaldemo9" title="حذف"><i
-                                                    class="las la-trash"></i></a>
+                                                data-toggle="modal" href="#modaldemo9" title="حذف">
+                                                <i class="las la-trash"></i>&nbsp;
+                                                حذف
+                                            </a>
                                         @endcan
                                     </td>
                                 </tr>
@@ -118,11 +128,12 @@
                     </table>
                 </div>
             </div>
+
         </div>
     </div>
 
-
-    <div class="modal" id="modaldemo8">
+    {{-- Add --}}
+    <div class="modal fade" id="modaldemo8">
         <div class="modal-dialog" role="document">
             <div class="modal-content modal-content-demo">
                 <div class="modal-header">
@@ -155,6 +166,7 @@
 
 
     </div>
+
     <!-- edit -->
     <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
@@ -167,7 +179,6 @@
                     </button>
                 </div>
                 <div class="modal-body">
-
                     <form action="sections/update" method="post" autocomplete="off">
                         {{ method_field('patch') }}
                         {{ csrf_field() }}
@@ -195,8 +206,8 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content modal-content-demo">
                 <div class="modal-header">
-                    <h6 class="modal-title">حذف القسم</h6><button aria-label="Close" class="close" data-dismiss="modal"
-                        type="button"><span aria-hidden="true">&times;</span></button>
+                    <h6 class="modal-title">حذف القسم</h6><button aria-label="Close" class="close"
+                        data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
                 </div>
                 <form action="sections/destroy" method="post">
                     {{ method_field('delete') }}
@@ -257,19 +268,15 @@
         modal.find('.modal-body #section_name').val(section_name);
         modal.find('.modal-body #description').val(description);
     })
-
 </script>
 
 <script>
     $('#modaldemo9').on('show.bs.modal', function(event) {
-        var button = $(event.relatedTarget)
-        var id = button.data('id')
-        var section_name = button.data('section_name')
+        var e = $(event.relatedTarget);
         var modal = $(this)
-        modal.find('.modal-body #id').val(id);
-        modal.find('.modal-body #section_name').val(section_name);
+        modal.find('.modal-body #id').val(e.data('id'));
+        modal.find('.modal-body #section_name').val(e.data('section_name'));
     })
-
 </script>
 
 @endsection

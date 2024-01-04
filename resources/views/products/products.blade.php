@@ -79,8 +79,8 @@
                 <div class="card-header pb-0">
                     <div class="d-flex justify-content-between">
                         @can('اضافة منتج')
-                            <a class="modal-effect btn btn-outline-primary btn-block" data-effect="effect-scale"
-                                data-toggle="modal" href="#exampleModal">اضافة منتج</a>
+                            <a class="modal-effect btn btn-outline-primary" data-effect="effect-scale" data-toggle="modal"
+                                href="#exampleModal">اضافة منتج</a>
                         @endcan
                     </div>
                 </div>
@@ -116,7 +116,8 @@
                                             @endcan
 
                                             @can('حذف منتج')
-                                                <button class="btn btn-outline-danger btn-sm " data-pro_id="{{ $Product->id }}"
+                                                <button class="btn btn-outline-danger btn-sm "
+                                                    data-pro_id="{{ $Product->id }}"
                                                     data-product_name="{{ $Product->Product_name }}" data-toggle="modal"
                                                     data-target="#modaldemo9">حذف</button>
                                             @endcan
@@ -147,7 +148,8 @@
                         <div class="modal-body">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">اسم المنتج</label>
-                                <input type="text" class="form-control" id="Product_name" name="Product_name" required>
+                                <input type="text" class="form-control" id="Product_name" name="Product_name"
+                                    required>
                             </div>
 
                             <label class="my-1 mr-2" for="inlineFormCustomSelectPref">القسم</label>
@@ -192,7 +194,8 @@
                             <div class="form-group">
                                 <label for="title">اسم المنتج :</label>
 
-                                <input type="hidden" class="form-control" name="pro_id" id="pro_id" value="">
+                                <input type="hidden" class="form-control" name="pro_id" id="pro_id"
+                                    value="">
 
                                 <input type="text" class="form-control" name="Product_name" id="Product_name">
                             </div>
@@ -206,8 +209,7 @@
 
                             <div class="form-group">
                                 <label for="des">ملاحظات :</label>
-                                <textarea name="description" cols="20" rows="5" id='description'
-                                    class="form-control"></textarea>
+                                <textarea name="description" cols="20" rows="5" id='description' class="form-control"></textarea>
                             </div>
 
                         </div>
@@ -310,7 +312,6 @@
             modal.find('.modal-body #pro_id').val(pro_id);
             modal.find('.modal-body #product_name').val(product_name);
         })
-
     </script>
 
 @endsection

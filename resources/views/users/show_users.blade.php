@@ -2,7 +2,7 @@
 @section('css')
 
 @section('title')
-    المستخدمين - مورا سوفت للادارة الفواتير
+    المستخدمين
 @stop
 
 <!-- Internal Data table css -->
@@ -21,8 +21,8 @@
 <div class="breadcrumb-header justify-content-between">
     <div class="my-auto">
         <div class="d-flex">
-            <h4 class="content-title mb-0 my-auto">المستخدمين</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/ قائمة
-                المستخدمين</span>
+            <h4 class="content-title mb-0 my-auto">المستخدمين</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">
+                / قائمة المستخدمين</span>
         </div>
     </div>
 </div>
@@ -90,14 +90,19 @@
                                     <td>
                                         @can('تعديل مستخدم')
                                             <a href="{{ route('users.edit', $user->id) }}" class="btn btn-sm btn-info"
-                                                title="تعديل"><i class="las la-pen"></i></a>
+                                                title="تعديل">
+                                                <i class="las la-pen"></i>&nbsp;
+                                                تعديل
+                                            </a>
                                         @endcan
 
                                         @can('حذف مستخدم')
                                             <a class="modal-effect btn btn-sm btn-danger" data-effect="effect-scale"
                                                 data-user_id="{{ $user->id }}" data-username="{{ $user->name }}"
-                                                data-toggle="modal" href="#modaldemo8" title="حذف"><i
-                                                    class="las la-trash"></i></a>
+                                                data-toggle="modal" href="#modaldemo8" title="حذف">
+                                                <i class="las la-trash"></i>&nbsp;
+                                                حذف
+                                            </a>
                                         @endcan
                                     </td>
                                 </tr>
@@ -171,7 +176,6 @@
         modal.find('.modal-body #user_id').val(user_id);
         modal.find('.modal-body #username').val(username);
     })
-
 </script>
 
 

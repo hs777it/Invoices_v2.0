@@ -130,16 +130,13 @@
                               <th scope="row">الحالة الحالية</th>
 
                               @if ($invoice->value_status == 1)
-                                <td><span
-                                    class="badge badge-pill badge-success">{{ $invoice->status }}</span>
+                                <td><span class="badge badge-success">{{ $invoice->status }}</span>
                                 </td>
                               @elseif($invoice->value_status == 2)
-                                <td><span
-                                    class="badge badge-pill badge-danger">{{ $invoice->status }}</span>
+                                <td><span class="badge badge-danger">{{ $invoice->status }}</span>
                                 </td>
                               @else
-                                <td><span
-                                    class="badge badge-pill badge-warning">{{ $invoice->status }}</span>
+                                <td><span class="badge badge-warning">{{ $invoice->status }}</span>
                                 </td>
                               @endif
                             </tr>
@@ -182,16 +179,13 @@
                                 <td>{{ $invoice->section->section_name }}</td>
                                 @if ($x->value_status == 1)
                                   <td>
-                                    <span
-                                      class="badge badge-pill badge-success">{{ $x->status }}</span>
+                                    <span class="badge badge-success">{{ $x->status }}</span>
                                   </td>
                                 @elseif($x->value_status == 2)
-                                  <td><span
-                                      class="badge badge-pill badge-danger">{{ $x->status }}</span>
+                                  <td><span class="badge badge-danger">{{ $x->status }}</span>
                                   </td>
                                 @else
-                                  <td><span
-                                      class="badge badge-pill badge-warning">{{ $x->status }}</span>
+                                  <td><span class="badge badge-warning">{{ $x->status }}</span>
                                   </td>
                                 @endif
                                 <td>{{ $x->payment_date }}</td>
@@ -226,7 +220,7 @@
                                 <label class="custom-file-label" for="customFile">حدد
                                   المرفق</label>
                               </div><br><br>
-                              <button class="btn btn-primary btn-sm " name="uploadedFile"
+                              <button class="btn btn-primary btn-md " name="uploadedFile"
                                 type="submit">تاكيد</button>
                             </form>
                           </div>

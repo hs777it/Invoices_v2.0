@@ -166,12 +166,12 @@
             <p class="text-danger">* صيغة المرفق pdf, jpeg ,.jpg , png </p>
             <h5 class="card-title">المرفقات</h5>
 
-            <div class="col-sm-12 col-md-12">
+            <div class="col-sm-12 col-md-8">
               <input class="dropify" name="image" data-height="70" type="file"
                 accept=".pdf,.jpg, .png, image/jpeg, image/png" />
             </div><br>
 
-            <div class="d-flex justify-content-center">
+            <div class="d-flex justify-content-right">
               <button class="btn btn-primary" type="submit">حفظ
                 البيانات</button>
             </div>

@@ -84335,4 +84335,19 @@ a.text-dark:focus {
   padding-right: 30px !important;
 }
 
+.dropdown-menu.show {
+  background: #eaeaea;
+  border: 1px solid #0162e8;
+}
+
+a.dropdown-item:hover {
+  background: #0162e8;
+  color: #ffffff;
+}
+
+.badge {
+  font-size: 100% !important;
+  line-height: 1.3;
+}
+
 /*# sourceMappingURL=style.css.map */

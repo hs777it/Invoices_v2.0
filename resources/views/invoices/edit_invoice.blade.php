@@ -57,7 +57,8 @@
                 <label class="control-label" for="inputName">رقم الفاتورة</label>
                 <input name="invoice_id" type="hidden" value="{{ $invoice->id }}">
                 <input class="form-control" id="inputName" name="invoice_number" type="text"
-                  value="{{ $invoice->invoice_number }}" title="يرجي ادخال رقم الفاتورة" required>
+                  value="{{ $invoice->invoice_number }}" title="يرجي ادخال رقم الفاتورة" readonly
+                  required>
               </div>
 
               <div class="col">

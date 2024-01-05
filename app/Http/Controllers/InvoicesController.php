@@ -35,8 +35,8 @@ class InvoicesController extends Controller
     {
         invoices::create([
             'invoice_number' => $request->invoice_number,
-            'invoice_date' => $request->invoice_Date,
-            'due_date' => $request->Due_date,
+            'invoice_date' => $request->invoice_date,
+            'due_date' => $request->due_date,
             'product' => $request->product,
             'section_id' => $request->section,
             'amount_collection' => $request->amount_collection,
@@ -55,7 +55,7 @@ class InvoicesController extends Controller
             'id_invoice' => $invoice_id,
             'invoice_number' => $request->invoice_number,
             'product' => $request->product,
-            'section' => $request->Section,
+            'section' => $request->section,
             'status' => 'غير مدفوعة',
             'value_status' => 2,
             'note' => $request->note,
@@ -92,7 +92,6 @@ class InvoicesController extends Controller
         $user = User::get();
         $invoices = invoices::latest()->first();
         Notification::send($user, new \App\Notifications\Add_invoice_new($invoices));
-
         event(new MyEventClass('hello world'));
 
         session()->flash('Add', 'تم اضافة الفاتورة بنجاح');
@@ -101,8 +100,8 @@ class InvoicesController extends Controller
 
     public function show($id)
     {
-        $invoice = invoices::where('id', $id)->first();
-        return view('invoices.status_update', compact('invoice'));
+        $invoices = invoices::where('id', $id)->first();
+        return view('invoices.status_update', compact('invoices'));
     }
 
     public function edit($id)
@@ -143,12 +142,10 @@ class InvoicesController extends Controller
         $invoice = invoices::where('id', $id)->first();
         $details = invoice_attachments::where('invoice_id', $id)->first();
 
-        $id_page = $request->id_page;
-
-        if (!$id_page == 2) {
+        $btn_action = $request->btn_action;
+        if ($btn_action == '0') {
 
             if (!empty($details->invoice_number)) {
-
                 Storage::disk('public_uploads')->deleteDirectory($details->invoice_number);
             }
 
@@ -158,7 +155,7 @@ class InvoicesController extends Controller
         } else {
             $invoice->delete();
             session()->flash('archive_invoice');
-            return redirect('/Archive');
+            return redirect('/archive');
         }
     }
 
@@ -171,7 +168,7 @@ class InvoicesController extends Controller
     }
 
 
-    public function Status_Update($id, Request $request)
+    public function status_update($id, Request $request)
     {
         $invoice = invoices::findOrFail($id);
 
@@ -179,7 +176,7 @@ class InvoicesController extends Controller
 
             $invoice->update([
                 'value_status' => 1,
-                'status' => $request->Status,
+                'status' => $request->status,
                 'payment_date' => $request->payment_date,
             ]);
 
@@ -217,28 +214,28 @@ class InvoicesController extends Controller
     }
 
 
-    public function Invoice_Paid()
+    public function invoices_paid()
     {
-        $invoice = Invoices::where('value_status', 1)->get();
-        return view('invoices.invoices_paid', compact('invoice'));
+        $invoices = Invoices::where('value_status', 1)->get();
+        return view('invoices.invoices_paid', compact('invoices'));
     }
 
-    public function Invoice_unPaid()
+    public function invoices_unpaid()
     {
-        $invoice = Invoices::where('value_status', 2)->get();
-        return view('invoices.invoices_unpaid', compact('invoice'));
+        $invoices = Invoices::where('value_status', 2)->get();
+        return view('invoices.invoices_unpaid', compact('invoices'));
     }
 
-    public function Invoice_Partial()
+    public function invoices_partial()
     {
-        $invoice = Invoices::where('value_status', 3)->get();
-        return view('invoices.invoices_Partial', compact('invoice'));
+        $invoices = Invoices::where('value_status', 3)->get();
+        return view('invoices.invoices_partial', compact('invoices'));
     }
 
-    public function Print_invoice($id)
+    public function print_invoice($id)
     {
         $invoice = invoices::where('id', $id)->first();
-        return view('invoices.Print_invoice', compact('invoice'));
+        return view('invoices.print_invoice', compact('invoice'));
     }
 
     public function export()

@@ -33,7 +33,54 @@ routes/web.php
 
 =-=-=-= =-=-=-= =-=-=-= =-=-=-= =-=-=-= =-=-=-= =-=-=-= =-=-=-= =-=-=-= =-=-=-=
 
-
+php artisan make:model
 
 
 php artisan migrate
+
+Naming Conventions in Laravel:
+------------------------------
+PascalCase: MyControllerName , MyModelName, MyClassName
+camelCase: myMethodName ,myVariableName
+snake_case: my_function_name, my_route_name, my_view_name
+MY_CONSTANT
+
+Class names: Class names should be declared in StudlyCaps (also known as CamelCase) style,
+with the first letter of each word capitalized, without underscores,and with no prefixes.
+For example: MyClassName.
+
+Method names: Method names should be declared in camelCase style,
+with the first letter of the first word in lowercase
+and the first letter of each subsequent word capitalized,
+without underscores.
+For example: myMethodName.
+
+Constant names: Constant names should be declared in all uppercase letters
+with underscores separating words.
+For example: MY_CONSTANT.
+
+Variable names: Variable names should be declared in camelCase style,
+with the first letter of the first word in lowercase
+and the first letter of each subsequent word capitalized, without underscores.
+For example: myVariableName.
+
+Function names: Function names should be declared in snake_case style,
+with all letters in lowercase and underscores separating words.
+For example: my_function_name.
+
+Route names: Route names should be declared in snake_case style,
+with all letters in lowercase and underscores separating words.
+For example: my_route_name.
+
+View names: View names should be declared in snake_case style,
+with all letters in lowercase and underscores separating words.
+For example: my_view_name.blade.php.
+
+Controller names: Controller names should be declared in plural form,
+with the first letter of each word capitalized, without underscores,
+and with the word "Controller" added to the end. 
+For example: MyControllerName.
+
+Model names: Model names should be declared in singular form, 
+with the first letter of each word capitalized, without underscores. 
+For example: MyModelName.

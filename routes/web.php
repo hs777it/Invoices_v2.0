@@ -45,17 +45,17 @@ Route::get('/edit_invoice/{id}', 'InvoicesController@edit');
 
 Route::get('/status_show/{id}', 'InvoicesController@show')->name('Status_show');
 
-Route::post('/status_update/{id}', 'InvoicesController@Status_Update')->name('Status_Update');
+Route::post('/status_update/{id}', 'InvoicesController@status_update')->name('status_update');
 
 Route::resource('archive', 'InvoiceAchiveController');
 
-Route::get('invoice_paid', 'InvoicesController@Invoice_Paid');
+Route::get('invoices_paid', 'InvoicesController@invoices_paid');
 
-Route::get('invoice_unPaid', 'InvoicesController@Invoice_UnPaid');
+Route::get('invoices_unpaid', 'InvoicesController@invoices_unpaid');
 
-Route::get('invoice_partial', 'InvoicesController@Invoice_Partial');
+Route::get('invoices_partial', 'InvoicesController@invoices_partial');
 
-Route::get('print_invoice/{id}', 'InvoicesController@Print_invoice');
+Route::get('print_invoice/{id}', 'InvoicesController@print_invoice');
 
 Route::get('export_invoices', 'InvoicesController@export');
 

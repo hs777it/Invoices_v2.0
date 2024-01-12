@@ -68,7 +68,6 @@
     </script>
   @endif
 
-
   <!-- row -->
   <div class="row">
     <!--div-->
@@ -89,7 +88,7 @@
         <div class="card-body">
           <div class="table-responsive">
             <table class="table key-buttons text-md-nowrap" id="example1"
-              data-page-length='50'style="text-align: center">
+              data-page-length=''style="text-align: center">
               <thead>
                 <tr>
                   <th class="border-bottom-0">#</th>
@@ -176,7 +175,7 @@
 
                           @can('تغير حالة الدفع')
                             <a class="dropdown-item tx-14"
-                              href="{{ URL::route('Status_show', [$invoice->id]) }}">
+                              href="{{ URL::route('status_show', [$invoice->id]) }}">
                               <i class="text-success fas fa-check ml-2"></i>
                               حالة الدفع
                             </a>

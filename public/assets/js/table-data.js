@@ -1,63 +1,56 @@
 $(function (e) {
-	//file export datatable
-	var table = $('#example').DataTable({
-		lengthChange: false,
-		buttons: ['copy', 'excel', 'pdf', 'colvis'],
-		responsive: true,
-		language: {
-			searchPlaceholder: 'Search...',
-			sSearch: '',
-			lengthMenu: '_MENU_ ',
-		}
-	});
-	table.buttons().container()
-		.appendTo('#example_wrapper .col-md-6:eq(0)');
-
-	$('#example1').DataTable({
-		language: {
-			searchPlaceholder: 'Search...',
-			sSearch: '',
-			lengthMenu: '_MENU_',
-		}
-	});
-	$('#example2').DataTable({
-		responsive: true,
-		language: {
-			searchPlaceholder: 'Search...',
-			sSearch: '',
-			lengthMenu: '_MENU_',
-		}
-	});
-	var table = $('#example-delete').DataTable({
-		responsive: true,
-		language: {
-			searchPlaceholder: 'Search...',
-			sSearch: '',
-			lengthMenu: '_MENU_',
-		}
-	});
-	$('#example-delete tbody').on('click', 'tr', function () {
-		if ($(this).hasClass('selected')) {
-			$(this).removeClass('selected');
-		}
-		else {
-			table.$('tr.selected').removeClass('selected');
-			$(this).addClass('selected');
-		}
-	});
 
 	$('#button').click(function () {
 		table.row('.selected').remove().draw(false);
 	});
 
+	//file export datatable
+	var table = $('#example').DataTable({
+		responsive: true,
+		lengthChange: true,
+		// buttons: ['excel', 'pdf'],
+		language: {
+			searchPlaceholder: 'بحث ...',
+			sSearch: '',
+			lengthMenu: '_MENU_ ',
+		},
+		lengthMenu: [
+			[10, 25, 50, 100, 200, - 1],
+			[10, 25, 50, 100, 200, 'الكل']
+		]
+	});
+
+	table.buttons().container().appendTo('#example_wrapper .col-md-6:eq(0)');
+
+	$('#example1').DataTable({
+		responsive: false,
+		lengthChange: true,
+		language: {
+			searchPlaceholder: 'بحث ...',
+			sSearch: '',
+			lengthMenu: '_MENU_ ',
+		},
+		lengthMenu: [
+			[10, 25, 50, 100, 200, - 1],
+			[10, 25, 50, 100, 200, 'الكل']
+		]
+	});
+
+
+
+
+
 	//Details display datatable
 	$('#example-1').DataTable({
-		responsive: true,
 		language: {
-			searchPlaceholder: 'Search...',
+			searchPlaceholder: 'بحث ...',
 			sSearch: '',
 			lengthMenu: '_MENU_',
 		},
+		lengthMenu: [
+			[10, 25, 50, 100, 200, - 1],
+			[10, 25, 50, 100, 200, 'الكل']
+		],
 		responsive: {
 			details: {
 				display: $.fn.dataTable.Responsive.display.modal({
@@ -70,6 +63,28 @@ $(function (e) {
 					tableClass: 'table border mb-0'
 				})
 			}
+		}
+	});
+
+	var table = $('#example-delete').DataTable({
+		responsive: true,
+		language: {
+			searchPlaceholder: 'بحث ...',
+			sSearch: '',
+			lengthMenu: '_MENU_',
+		},
+		lengthMenu: [
+			[10, 25, 50, 100, 200, - 1],
+			[10, 25, 50, 100, 200, 'الكل']
+		]
+	});
+	$('#example-delete tbody').on('click', 'tr', function () {
+		if ($(this).hasClass('selected')) {
+			$(this).removeClass('selected');
+		}
+		else {
+			table.$('tr.selected').removeClass('selected');
+			$(this).addClass('selected');
 		}
 	});
 });

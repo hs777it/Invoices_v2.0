@@ -32,11 +32,38 @@ app/Http/Controllers/InvoiceController.php
 routes/web.php
 
 =-=-=-= =-=-=-= =-=-=-= =-=-=-= =-=-=-= =-=-=-= =-=-=-= =-=-=-= =-=-=-= =-=-=-=
+php artisan list make
+
+php artisan config:cache  
 
 php artisan make:model
 
-
 php artisan migrate
+
+php artisan --version
+
+
+laravel new example-app --git
+laravel new example-app --git --branch="main"
+git branch
+git log
+
+php artisan down --secret="5983-4gzq-d83957"
+php artisan down --redirect="coming_soon"
+php artisan down --render="errors::503"
+php artisan down --render="503"
+php artisan down --refresh=5
+php artisan up
+
+php artisan storage:link 
+
+
+php artisan route:list
+php artisan r:l --except-vendor
+
+php artisan make:command CreateUserCommand
+
+php artisan make:middleware IsAdmin
 
 Naming Conventions in Laravel:
 ------------------------------
@@ -84,3 +111,29 @@ For example: MyControllerName.
 Model names: Model names should be declared in singular form, 
 with the first letter of each word capitalized, without underscores. 
 For example: MyModelName.
+
+
+=-=-=-= =-=-=-= =-=-=-= =-=-=-= =-=-=-= =-=-=-= =-=-=-= =-=-=-= =-=-=-= =-=-=-=
+
+User Roles and Permissions:
+
+Laratrust:
+Pros:
+    Easy to use and understand.
+    Provides a lot of features out of the box.
+    Good documentation.
+Cons:
+    Can be slow for large applications.
+    Limited customization options.
+    
+Spatie Permissions:
+Pros:
+    Lightweight and fast.
+    Highly customizable.
+    Good documentation.
+Cons:
+    Requires more setup and configuration than Laratrust.
+    Some features may require additional packages.
+
+https://medium.com/@miladev95/step-by-step-guide-to-user-role-and-permission-tutorial-in-laravel-10-1fecdabfdea0
+https://medium.com/@codeaxion77/supercharge-your-laravel-app-with-spatie-roles-and-permissions-f20fe02a8c75

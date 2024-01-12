@@ -138,7 +138,7 @@
                             الفاتورة</a>
 
                           <a class="dropdown-item"
-                            href="{{ URL::route('Status_show', [$invoice->id]) }}"><i
+                            href="{{ URL::route('status_show', [$invoice->id]) }}"><i
                               class=" text-success fas
                                                                                                                                     fa-money-bill"></i>&nbsp;&nbsp;تغير
                             حالة

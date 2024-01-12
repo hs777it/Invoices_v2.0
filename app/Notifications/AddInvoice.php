@@ -7,6 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 use App\invoices;
+
 class AddInvoice extends Notification
 {
     use Queueable;
@@ -40,16 +41,15 @@ class AddInvoice extends Notification
      * @return \Illuminate\Notifications\Messages\MailMessage
      */
     public function toMail($notifiable)
-
     {
-    
-        $url = 'http://127.0.0.1:8000/InvoicesDetails/'.$this->invoice_id;
 
-        return (new MailMessage)                 
-                    ->subject('اضافة فاتورة جديدة')
-                    ->line('اضافة فاتورة جديدة')
-                    ->action('عرض الفاتورة', $url)
-                    ->line('شكرا لاستخدامك مورا سوفت لادارة الفواتير');
+        $url = 'http://127.0.0.1:8000/invoice/' . $this->invoice_id;
+
+        return (new MailMessage)
+            ->subject('اضافة فاتورة جديدة')
+            ->line('اضافة فاتورة جديدة')
+            ->action('عرض الفاتورة', $url)
+            ->line('شكرا لاستخدامك بي سمارت لادارة الفواتير');
     }
 
     /**

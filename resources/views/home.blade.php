@@ -45,7 +45,7 @@
   <div class="container direction: ltr;">
     <div class="row">
       <div>
-        
+
         {{-- <a href="{{ route('user_test', ['id' => 3]) }}"> Test Page </a> --}}
 
         <h3 class="text-danger center-block text-center">

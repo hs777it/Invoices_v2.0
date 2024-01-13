@@ -29,7 +29,7 @@ class AppServiceProvider extends ServiceProvider
         View::share('hs', 'Hussein Saad');
 
         View::composer('*', function ($view) {
-            $view->with('invoices', \App\User::first());
+          //  $view->with('invoices', \App\User::first());
         });
 
         //View::composer('*', ProfileComposer::class);

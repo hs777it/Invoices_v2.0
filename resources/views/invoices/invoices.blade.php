@@ -107,7 +107,9 @@
                 </tr>
               </thead>
               <tbody>
-
+                @php
+                  dd($invoices);
+                @endphp
                 @php $i = 0; @endphp
                 @foreach ($invoices as $invoice)
                   @php $i++; @endphp
